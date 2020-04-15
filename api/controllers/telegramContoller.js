@@ -1,7 +1,8 @@
 exports.onUpdateReceived = function (req, res) {
     // handle incoming Telegram payload here.
     console.log(req.body);
-    res.json({ status: "ok" });
+    //res.json({ status: "ok" });
+    res.json(req.body);
 };
 
 exports.onGetRequest = function (req, res) {
