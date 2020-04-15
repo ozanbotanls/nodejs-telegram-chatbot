@@ -3,3 +3,7 @@ exports.onUpdateReceived = function (req, res) {
     console.log(req.body);
     res.json({ status: "ok" });
 };
+
+exports.onGetRequest = function (req, res) {
+    res.json({ status: "ok", message: "hello there!" });
+};
