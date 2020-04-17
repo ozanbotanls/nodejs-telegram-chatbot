@@ -1,2 +1,3 @@
-# covid-telegram-bot
-A telegram bot showing up-to-date worldwide Covid figures upon searching with @covid
+# telegram-bot for Spotify
+[InlineQueryResult]: https://core.telegram.org/bots/api#inlinequeryresult
+A telegram bot listing [InlineQueryResult] records to a user upon an inline query provided via any Telegram chat.
