@@ -1,5 +1,5 @@
 {
-    "name": "covid-telegram-bot",
+    "name": "telegram-inline-chatbot",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -23,6 +23,7 @@
     "dependencies": {
         "express": "^4.17.1",
         "node-fetch": "^2.6.0",
-        "node-spotify-api": "^1.1.1"
+        "node-spotify-api": "^1.1.1",
+        "rss-parser": "^3.7.6"
     }
 }

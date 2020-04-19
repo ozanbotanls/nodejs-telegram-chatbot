@@ -1,18 +1,23 @@
 exports.onUpdateReceived = function (req, res) {
-    const fetch = require("node-fetch");
-    const Spotify = require("node-spotify-api");
-    const BOT_TOKEN = process.env.BOT_TOKEN;
     if (req.body.inline_query) {
         let messageId = req.body.inline_query.id;
         let query = req.body.inline_query.query;
-        let userName = req.body.inline_query.from.username;
-        console.log("query => " + query);
-        console.log("userName => " + userName);
+        let firstName = req.body.inline_query.from.first_name;
+        console.log("firstName => " + firstName);
+        if (query != "") {
+            res.json({ status: "ok" });
+            return;
+        }
+
+        const Spotify = require("node-spotify-api");
         var spotify = new Spotify({
             id: process.env.SPOTIFY_APP_ID,
             secret: process.env.SPOTIFY_APP_SECRET,
         });
+
+        const BOT_TOKEN = process.env.BOT_TOKEN_TKP;
         const results = [];
+
         spotify
             .request(
                 "https://api.spotify.com/v1/shows/3umkGQAmujYDEwA8EXCypL/episodes?market=TR"
@@ -37,22 +42,13 @@ exports.onUpdateReceived = function (req, res) {
                             thumb_height: episode.images[2].height,
                         });
                     });
-                    const telegramPayload = {
-                        inline_query_id: messageId,
-                        results: results,
-                    };
-                    fetch(
-                        "https://api.telegram.org/bot" +
-                            BOT_TOKEN +
-                            "/answerInlineQuery",
-                        {
-                            method: "post",
-                            body: JSON.stringify(telegramPayload),
-                            headers: { "Content-Type": "application/json" },
-                        }
-                    )
-                        .then((res) => res.json())
-                        .then((json) => console.log(json));
+                    telegramUtility = require("../utilities/telegramUtility");
+                    // send out the results as queryResult format.
+                    telegramUtility.answerInlineQuery(
+                        BOT_TOKEN,
+                        messageId,
+                        results
+                    );
                 }
             })
             .catch(function (err) {

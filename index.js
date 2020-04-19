@@ -6,8 +6,11 @@ var express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var telegramRoutes = require("./api/routes/telegramRoutes"); //importing route
-telegramRoutes(app); //register the route
+var telegramRoutes = require("./api/routes/telegramRoutes");
+telegramRoutes(app); //register the telegram route
+
+var soLRoutes = require("./api/routes/solPortalRoutes");
+soLRoutes(app); //register the solportal route
 
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + " not found" });
