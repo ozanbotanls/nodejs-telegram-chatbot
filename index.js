@@ -6,6 +6,13 @@ var express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get("/", function (req, res) {
+    res.json({
+        message:
+            "Hey there! This app has different paths serving for some Telegram chatbots",
+    });
+});
+
 var telegramRoutes = require("./api/routes/telegramRoutes");
 telegramRoutes(app); //register the telegram route
 
