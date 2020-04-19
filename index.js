@@ -13,6 +13,11 @@ app.get("/", function (req, res) {
     });
 });
 
+app.get("/api/solrss", function (req, res) {
+    const xmlParser = require("./api/utilities/xmlParser");
+    xmlParser.parseSolToJSON(res);
+});
+
 var telegramRoutes = require("./api/routes/telegramRoutes");
 telegramRoutes(app); //register the telegram route
 
