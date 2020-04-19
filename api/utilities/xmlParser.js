@@ -17,7 +17,7 @@ exports.parseSolToJSON = (res) => {
                 news.push({
                     id: newsItem.guid,
                     title: newsItem.title,
-                    time: newsItem.pubDate.time[0].$.datetime,
+                    time: newsItem.pubDate.time[0].$.datetime.substring(0, 10),
                     content: newsItem.content,
                     image: img,
                     link: link,
