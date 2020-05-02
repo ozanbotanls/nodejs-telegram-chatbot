@@ -19,6 +19,7 @@ exports.parseSolToJSON = (res) => {
                     title: newsItem.title,
                     time: newsItem.pubDate.time[0].$.datetime.substring(0, 10),
                     content: newsItem.content,
+                    contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
                 });
