@@ -19,6 +19,11 @@ app.get("/api/solrss", cors(), function (req, res) {
     xmlParser.parseSolToJSON(res);
 });
 
+app.get("/api/solyazarlarrss", cors(), function (req, res) {
+    const xmlParser = require("./api/utilities/xmlParser");
+    xmlParser.parseSolYazarlarToJSON(res);
+});
+
 var telegramRoutes = require("./api/routes/telegramRoutes");
 telegramRoutes(app); //register the telegram route
 
