@@ -52,8 +52,7 @@ exports.parseSolYazarlarToJSON = (res) => {
                 news.push({
                     id: newsItem.guid,
                     title: newsItem.title,
-                    time: newsItem.pubDate.time[0].$.datetime.substring(0, 10),
-                    time2: newsItem.pubDate.time[0].$.datetime.substr(11,5),
+                    time: newsItem.pubDate.time[0].$.datetime,
                     content: newsItem.content,
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
