@@ -14,6 +14,8 @@ exports.parseSolToJSON = (res) => {
                 let fromImg = newsItem.content.indexOf('<img src="', toLink);
                 let toImg = newsItem.content.indexOf("?itok", toLink);
                 const img = newsItem.content.substring(fromImg + 10, toImg);
+                const authorToIndex = newsItem.contentSnippet.indexOf("\n");
+                const author = newsItem.contentSnippet.substring(0, authorToIndex - 1);
                 news.push({
                     id: newsItem.guid,
                     title: newsItem.title,
@@ -24,6 +26,7 @@ exports.parseSolToJSON = (res) => {
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
+                    author: author
                 });
             }
         }
@@ -50,6 +53,8 @@ exports.parseSolYazarlarToJSON = (res) => {
                 let fromImg = newsItem.content.indexOf('<img src="', toLink);
                 let toImg = newsItem.content.indexOf("?itok", toLink);
                 const img = newsItem.content.substring(fromImg + 10, toImg);
+                const authorToIndex = newsItem.contentSnippet.indexOf("\n");
+                const author = newsItem.contentSnippet.substring(0, authorToIndex - 1);
                 news.push({
                     id: newsItem.guid,
                     title: newsItem.title,
@@ -58,6 +63,7 @@ exports.parseSolYazarlarToJSON = (res) => {
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
+                    author: author
                 });
             }
         }
