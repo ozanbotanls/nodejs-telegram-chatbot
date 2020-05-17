@@ -22,7 +22,7 @@ exports.parseSolToJSON = (res) => {
                     time: newsItem.pubDate.time[0].$.datetime.substring(0, 10),
                     time2: newsItem.pubDate.time[0].$.datetime.substr(11,5),
                     pubDate: newsItem.pubDate.time[0]._,
-                    content: newsItem.content,
+                    //content: newsItem.content,
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
