@@ -26,7 +26,8 @@ exports.parseSolToJSON = (res) => {
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
-                    author: author
+                    author: author,
+                    type: "news"
                 });
             }
         }
@@ -63,7 +64,8 @@ exports.parseSolYazarlarToJSON = (res) => {
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
-                    author: author
+                    author: author,
+                    type: "article"
                 });
             }
         }
