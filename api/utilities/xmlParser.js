@@ -36,7 +36,7 @@ exports.parseSolToJSON = (res) => {
         }
         res.json({ success: true, data: news });
     });
-};
+}; 
 
 exports.parseSolYazarlarToJSON = (res) => {
     var Parser = require("rss-parser");
