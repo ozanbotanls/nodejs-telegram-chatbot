@@ -60,7 +60,7 @@ exports.parseSolYazarlarToJSON = (res) => {
                     id: newsItem.guid,
                     title: newsItem.title,
                     pubDate: newsItem.pubDate.time[0]._,
-                    content: newsItem.content,
+                    //content: newsItem.content,
                     contentSnippet: newsItem.contentSnippet,
                     image: img,
                     link: link,
